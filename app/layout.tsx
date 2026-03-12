@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   description: "Crie banners profissionais personalizados para seus eventos instantaneamente.",
 };
 
+export const viewport = {
+  themeColor: "#0f172a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,15 +45,15 @@ export default function RootLayout({
               </span>
               Eventos Ao Vivo
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold font-[family-name:var(--font-outfit)] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-indigo-100 to-indigo-400/80 drop-shadow-sm mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold font-[family-name:var(--font-outfit)] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-indigo-100 to-indigo-400/80 drop-shadow-sm mb-4">
               Magic Banner
             </h1>
-            <p className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed">
               Sua presença, sua marca. Gere banners personalizados em segundos para destacar sua participação nos maiores eventos.
             </p>
           </header>
           
-          <main className="w-full max-w-5xl flex-1 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 shadow-2xl rounded-3xl p-6 md:p-12 relative overflow-hidden ring-1 ring-white/10 z-10 transition-all duration-300">
+          <main className="w-full max-w-5xl flex-1 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 shadow-2xl rounded-3xl p-5 sm:p-8 md:p-12 relative overflow-hidden ring-1 ring-white/10 z-10 transition-all duration-300">
             <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent"></div>
             {children}
           </main>

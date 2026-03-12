@@ -128,9 +128,9 @@ export default function AdminPage() {
 
   return (
     <div className="flex flex-col w-full min-h-[80vh] gap-12">
-      <div className="flex justify-between items-center w-full mb-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full mb-6 sm:mb-4 gap-4">
          <div>
-            <h1 className="text-3xl font-bold font-[family-name:var(--font-outfit)] text-white flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold font-[family-name:var(--font-outfit)] text-white flex items-center gap-3">
               <Settings2 className="text-indigo-400" /> Magic Panel
             </h1>
             <p className="text-slate-400 mt-2">Configure templates e a posição da área de corte em tempo real.</p>
@@ -208,11 +208,11 @@ export default function AdminPage() {
                </select>
             </div>
 
-            <div className="flex gap-4 mt-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
               {editingId && (
-                <button type="button" onClick={cancelEdit} className="flex-1 py-3 px-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition">Cancelar</button>
+                <button type="button" onClick={cancelEdit} className="w-full sm:flex-1 py-3 px-4 rounded-xl font-bold bg-slate-700 text-white hover:bg-slate-600 transition">Cancelar</button>
               )}
-              <button disabled={submitLoad} type="submit" className="flex-[2] py-3 px-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg disabled:opacity-50 transition flex justify-center items-center gap-2">
+              <button disabled={submitLoad} type="submit" className="w-full sm:flex-[2] py-3 px-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg disabled:opacity-50 transition flex justify-center items-center gap-2">
                  {submitLoad ? <Loader2 className="w-5 h-5 animate-spin" /> : (editingId ? "Salvar Alterações" : "Criar Evento")}
               </button>
             </div>
@@ -221,7 +221,7 @@ export default function AdminPage() {
         </div>
 
         {/* Lado Direito - Live Preview da Escala */}
-        <div className="w-full lg:w-1/2 sticky top-10">
+        <div className="w-full lg:w-1/2 lg:sticky lg:top-10">
           <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
             Visualizador do Layout Base (Mockup)
           </h2>
@@ -277,8 +277,8 @@ export default function AdminPage() {
       </div>
 
       {/* Tabela de Eventos */}
-      <div className="w-full">
-         <h2 className="text-2xl font-bold text-white mb-6">Meus Eventos Salvos</h2>
+      <div className="w-full mt-4">
+         <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Meus Eventos Salvos</h2>
          
          {loading ? (
            <div className="flex items-center gap-3 text-slate-400 py-10 justify-center"><Loader2 className="animate-spin w-5 h-5" /> Carregando banco...</div>

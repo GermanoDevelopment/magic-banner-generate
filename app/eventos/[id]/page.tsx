@@ -24,11 +24,11 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
             <Sparkles className="w-3.5 h-3.5" /> Transforme Sua Foto
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 sm:mb-6 mt-2 lg:mt-0">
             {event.nome}
           </h2>
           
-          <p className="text-slate-400 text-lg leading-relaxed mb-10">
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
             Diga ao mundo que você estará lá! O Magic Banner mescla sua foto com o design oficial do evento para criar uma arte única de divulgação.
           </p>
 
