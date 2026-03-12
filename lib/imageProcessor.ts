@@ -7,10 +7,17 @@ import { EventConfig } from './db';
  * Processa a foto do usuário e a sobrepõe no template do evento.
  * O template no servidor deve ser procurado na pasta `public`.
  */
-export async function generateBanner(evento: EventConfig, fotoBuffer: Buffer): Promise<Buffer> {
+export async function generateBanner(
+  evento: EventConfig,
+  fotoBuffer: Buffer
+): Promise<Buffer> {
   // Caminho absoluto para o template na pasta public
-  const templateAbsolutePath = path.join(process.cwd(), 'public', evento.templatePath);
-  
+  const templateAbsolutePath = path.join(
+    process.cwd(),
+    'public',
+    evento.templatePath
+  );
+
   let templateBuffer: Buffer;
   try {
     templateBuffer = await fs.readFile(templateAbsolutePath);
@@ -27,7 +34,7 @@ export async function generateBanner(evento: EventConfig, fotoBuffer: Buffer): P
     width,
     height,
     fit: 'cover',
-    position: 'center'
+    position: 'center',
   });
 
   // 2. Se a máscara for circular, criamos e aplicamos
@@ -37,19 +44,21 @@ export async function generateBanner(evento: EventConfig, fotoBuffer: Buffer): P
     </svg>`;
     const circleMask = Buffer.from(circleSvg);
 
-    fotoProcessada = fotoProcessada.composite([
-      {
-        input: circleMask,
-        blend: 'dest-in' // Mantém o conteúdo do primeiro inputapenas onde o segundo tem pixels não-transparentes
-      }
-    ]).png(); // Necessário converter para PNG para manter transparência
+    fotoProcessada = fotoProcessada
+      .composite([
+        {
+          input: circleMask,
+          blend: 'dest-in', // Mantém o conteúdo do primeiro inputapenas onde o segundo tem pixels não-transparentes
+        },
+      ])
+      .png(); // Necessário converter para PNG para manter transparência
   }
 
   const processedFotoBuffer = await fotoProcessada.toBuffer();
 
   // 3. Compor a imagem final: fundo é o template estático, a foto por cima
   // (Na maioria dos banners a foto fica por trás se o template for transparente.
-  // Vou assumir que o template tem um "buraco transparente" e a foto fica SOB (dest-over) 
+  // Vou assumir que o template tem um "buraco transparente" e a foto fica SOB (dest-over)
   // ou a foto fica no tamanho exato e por baixo, mas pelo spec o `template como fundo, foto sobreposta` foi pedido,
   // significando que a imagem do usuário vai em cima do template, ou seja, logo normal do composite.
   // Depende da ordem - default é sobrepor o input (foto) no background (template).
@@ -59,7 +68,7 @@ export async function generateBanner(evento: EventConfig, fotoBuffer: Buffer): P
         input: processedFotoBuffer,
         top,
         left,
-      }
+      },
     ])
     .png()
     .toBuffer();

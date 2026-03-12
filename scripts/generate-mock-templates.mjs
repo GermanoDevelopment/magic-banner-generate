@@ -21,15 +21,17 @@ async function createTemplates() {
       width: 800,
       height: 800,
       channels: 4,
-      background: { r: 50, g: 20, b: 120, alpha: 1 } // Roxo escuro
-    }
+      background: { r: 50, g: 20, b: 120, alpha: 1 }, // Roxo escuro
+    },
   })
     // Adicionar um buraco no meio usando composite com SVG transparente (clear)
     .composite([
       {
-        input: Buffer.from(`<svg width="800" height="800"><circle cx="300" cy="350" r="200" fill="#000" /></svg>`),
-        blend: 'dest-out' // Transforma a intersecção em transparente
-      }
+        input: Buffer.from(
+          `<svg width="800" height="800"><circle cx="300" cy="350" r="200" fill="#000" /></svg>`
+        ),
+        blend: 'dest-out', // Transforma a intersecção em transparente
+      },
     ])
     .png()
     .toFile(path.join(publicDir, 'evento-magico-2026.png'));
@@ -41,19 +43,21 @@ async function createTemplates() {
       width: 800,
       height: 800,
       channels: 4,
-      background: { r: 240, g: 180, b: 40, alpha: 1 } // Amarelo tech
-    }
+      background: { r: 240, g: 180, b: 40, alpha: 1 }, // Amarelo tech
+    },
   })
     .composite([
       {
-        input: Buffer.from(`<svg width="800" height="800"><rect x="200" y="200" width="400" height="300" fill="#000" /></svg>`),
-        blend: 'dest-out'
-      }
+        input: Buffer.from(
+          `<svg width="800" height="800"><rect x="200" y="200" width="400" height="300" fill="#000" /></svg>`
+        ),
+        blend: 'dest-out',
+      },
     ])
     .png()
     .toFile(path.join(publicDir, 'tech-conference-brasil.png'));
 
-  console.log("Mock templates criados em /public/templates/");
+  console.log('Mock templates criados em /public/templates/');
 }
 
 createTemplates().catch(console.error);

@@ -10,13 +10,16 @@ import path from 'path';
  * @param eventId ID do evento
  * @returns A URL pública da imagem salva
  */
-export async function uploadBanner(buffer: Buffer, eventId: string): Promise<string> {
+export async function uploadBanner(
+  buffer: Buffer,
+  eventId: string
+): Promise<string> {
   const filename = `${eventId}-${Date.now()}.png`;
 
   // Salva localmente se estiver em ambiente de desenvolvimento
   if (process.env.NODE_ENV === 'development') {
     const bannersDir = path.join(process.cwd(), 'public', 'banners');
-    
+
     // Garante que o diretório público de banners exista
     if (!fsSync.existsSync(bannersDir)) {
       fsSync.mkdirSync(bannersDir, { recursive: true });
@@ -24,7 +27,7 @@ export async function uploadBanner(buffer: Buffer, eventId: string): Promise<str
 
     const filePath = path.join(bannersDir, filename);
     await fs.writeFile(filePath, buffer);
-    
+
     // Retorna o caminho estático local
     return `/banners/${filename}`;
   }
@@ -39,7 +42,7 @@ export async function uploadBanner(buffer: Buffer, eventId: string): Promise<str
 
     return url;
   } catch (error) {
-    console.error("Erro ao fazer upload para o Vercel Blob:", error);
+    console.error('Erro ao fazer upload para o Vercel Blob:', error);
     throw new Error('Falha ao salvar a imagem gerada.');
   }
 }
