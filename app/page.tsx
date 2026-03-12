@@ -10,9 +10,9 @@ export default async function Home() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-700/50 pb-6">
         <div>
           <h2 className="text-3xl font-bold text-white mb-2 font-[family-name:var(--font-outfit)] tracking-tight flex items-center gap-3">
-             <Calendar className="text-purple-400 w-8 h-8"/> Experiências Disponíveis
+             <Calendar className="text-purple-400 w-8 h-8"/> Próximos Eventos
           </h2>
-          <p className="text-slate-400">Escolha o seu evento e garanta sua presença digital.</p>
+          <p className="text-slate-400">Selecione uma experiência e gere sua arte de divulgação oficial.</p>
         </div>
       </div>
       

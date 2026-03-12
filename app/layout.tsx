@@ -13,8 +13,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Banner Generator para Eventos",
-  description: "Crie e compartilhe banners personalizados para seus eventos favoritos.",
+  title: "Magic Banner | G-Dev",
+  description: "Crie banners profissionais personalizados para seus eventos instantaneamente.",
 };
 
 export default function RootLayout({
@@ -39,10 +39,10 @@ export default function RootLayout({
               Eventos Ao Vivo
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold font-[family-name:var(--font-outfit)] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-indigo-100 to-indigo-400/80 drop-shadow-sm mb-4">
-              Banner Generator
+              Magic Banner
             </h1>
             <p className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Destaque-se na multidão. Crie banners com a sua foto instantaneamente para qualquer evento e compartilhe com sua rede.
+              Sua presença, sua marca. Gere banners personalizados em segundos para destacar sua participação nos maiores eventos.
             </p>
           </header>
           
@@ -51,8 +51,8 @@ export default function RootLayout({
             {children}
           </main>
           
-          <footer className="mt-16 mb-8 text-center text-sm text-slate-500 font-medium z-10">
-            <p>&copy; {new Date().getFullYear()} Banner Generator. Crafted with magic.</p>
+          <footer className="mt-16 mb-8 text-center text-sm text-slate-500 font-medium z-10 flex flex-col items-center gap-2">
+            <p>&copy; {new Date().getFullYear()} Magic Banner. Desenvolvido com excelência por <span className="text-indigo-400 font-bold">G-Dev</span>.</p>
           </footer>
         </div>
       </body>

@@ -126,7 +126,7 @@ export function UploadForm({ eventId }: { eventId: string }) {
                   <Loader2 className="w-6 h-6 animate-spin" /> Em Processamento (Renderizando...)
                 </>
               ) : (
-                "Gerar Imagem Premium"
+                "Gerar Imagem..."
               )}
             </span>
           </>

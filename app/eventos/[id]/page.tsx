@@ -29,7 +29,7 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
           </h2>
           
           <p className="text-slate-400 text-lg leading-relaxed mb-10">
-            Chegou a hora de fazer parte da experiência. Faça upload com fundo limpo (e boa iluminação) para gerarmos sua arte oficial e divulgarmos juntos este super evento.
+            Diga ao mundo que você estará lá! O Magic Banner mescla sua foto com o design oficial do evento para criar uma arte única de divulgação.
           </p>
 
           <div className="bg-slate-800/40 p-6 md:p-8 rounded-[2rem] border border-slate-700/60 shadow-inner relative overflow-hidden">

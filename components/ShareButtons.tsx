@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Share2, Facebook, Twitter, MessageCircle } from "lucide-react";
+import { Download, Share2, Linkedin, Twitter, MessageCircle } from "lucide-react";
 
 export function ShareButtons({ bannerUrl, eventName }: { bannerUrl: string; eventName: string }) {
   const shareText = `Olha o banner incrível que eu gerei para o ${eventName}! 🎉 Vamos juntos?`;
@@ -27,7 +27,7 @@ export function ShareButtons({ bannerUrl, eventName }: { bannerUrl: string; even
   const links = {
     whatsapp: `https://wa.me/?text=${encodedText}%20${encodedUrl}`,
     twitter: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
   };
 
   return (
@@ -63,8 +63,8 @@ export function ShareButtons({ bannerUrl, eventName }: { bannerUrl: string; even
         <a href={links.twitter} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-4 rounded-xl bg-slate-800 border border-slate-700 hover:border-[#1DA1F2] hover:text-[#1DA1F2] text-slate-400 transition-colors group" title="Twitter">
           <Twitter className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </a>
-        <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-4 rounded-xl bg-slate-800 border border-slate-700 hover:border-[#1877F2] hover:text-[#1877F2] text-slate-400 transition-colors group" title="Facebook">
-          <Facebook className="w-6 h-6 group-hover:scale-110 transition-transform" />
+        <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-4 rounded-xl bg-slate-800 border border-slate-700 hover:border-[#0077B5] hover:text-[#0077B5] text-slate-400 transition-colors group" title="LinkedIn">
+          <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </a>
       </div>
     </div>
